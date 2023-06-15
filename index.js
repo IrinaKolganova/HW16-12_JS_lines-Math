@@ -1,19 +1,25 @@
-let name=document.getElementById('name');
-let photo=document.getElementById('photo');
-let chat=document.getElementById('chat');
-let button=document.getElementById('button');
+const name = document.getElementById('name');
+const photo = document.getElementById('photo');
+const chat = document.getElementById('chat');
+const button = document.getElementById('button');
 
-let userName=document.getElementById('userName');
-let userPhoto=document.getElementById('userPhoto');
-let userChat=document.getElementById('userChat');
+const userName = document.getElementById('userName');
+const userPhoto = document.getElementById('userPhoto');
+const userChat = document.getElementById('userChat');
 
-function getUserName(){let newName = name.value[0].toUpperCase() + name.value.substring(1);
-return(userName.textContent=newName);
+function getUserName() {
+    const newName = name.value[0].toUpperCase() + name.value.substring(1).toLowerCase();
+    return (userName.textContent = newName);
 }
-function checkSpam(){let antiSpam=chat.value.replace(/viagra|XXX/gi, '***');
-userChat.textContent = antiSpam;}
-function getComment(){
+
+function checkSpam() {
+    const antiSpam = chat.value.replace(/viagra|xxx|ххх/gi, '***');
+    return (userChat.textContent = antiSpam);
+}
+
+function getComment() {
     getUserName();
     checkSpam();
-    userPhoto.src=photo.value;}
-button.addEventListener('click',getComment);
+    userPhoto.src = photo.value;
+}
+button.addEventListener('click', getComment);
